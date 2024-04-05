@@ -6,9 +6,9 @@ A wrapped and published fork of the excellent [frameless](https://github.com/typ
 
 Across the last 4 years there have been PRs that have lagged in release, often also against the OSS Spark releases.  Whilst this is a completely understandable and acceptable part of the process it can hamper development and release of software using frameless, [Quality](https://github.com/sparkutils/quality) for example, made more complicated still by differences in runtimes such as Databricks.  3.5 Spark support took 5 months to release, given the amount of change it's also not too surprising.
 
-The major shift proposed by [#800](https://github.com/typelevel/frameless/pull/800) amps up the level of change and, although it may ease such changes in the future, introduces another unproven depenedency in [shim](https://github.com/sparkutils/shim).  It's beyond reasonable to expect this change requires even more care to release in frameless proper.
+The major shift proposed by [#800](https://github.com/typelevel/frameless/pull/800) amps up the level of change and, although it may ease such changes in the future, introduces another unproven dependency in [shim](https://github.com/sparkutils/shim).  It's beyond reasonable to expect this change requires even more care to release in frameless proper.
 
-In order to test in a corporate setting the software needs to be full blown release on maven central, building local snapshots is not always straight forward, worst still if you need to depend on it.
+In order to test in a corporate setting the software needs to be full-blown release on maven central, building local snapshots is not always straight forward, worst still if you need to depend on it.
 
 com.sparkutils.frameless aims to fill that void.
 

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>  <!-- rebuild -->
+
+    <artifactId>frameless-cats_${sparkCompatVersion}_${scalaCompatVersion}</artifactId>
+    <parent>
+        <artifactId>frameless-root_${sparkCompatVersion}_${scalaCompatVersion}</artifactId>
+        <groupId>com.sparkutils</groupId>
+        <version>0.17.0-SNAPSHOT</version>
+    </parent>
+    <version>${project.parent.version}</version>
+    <packaging>jar</packaging>
+    <name>cats</name>
+    <dependencies>
+        <dependency>
+            <groupId>com.sparkutils</groupId>
+            <artifactId>frameless-dataset_${sparkCompatVersion}_${scalaCompatVersion}</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sparkutils</groupId>
+            <artifactId>frameless-dataset_${sparkCompatVersion}_${scalaCompatVersion}</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+            <classifier>tests</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>org.typelevel</groupId>
+            <artifactId>cats-core_${scalaCompatVersion}</artifactId>
+            <version>${catsCoreVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.typelevel</groupId>
+            <artifactId>cats-effect_${scalaCompatVersion}</artifactId>
+            <version>${catsEffectVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.typelevel</groupId>
+            <artifactId>cats-mtl_${scalaCompatVersion}</artifactId>
+            <version>${catsMtlVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.typelevel</groupId>
+            <artifactId>alleycats-core_${scalaCompatVersion}</artifactId>
+            <version>${catsCoreVersion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.typelevel</groupId>
+            <artifactId>scalacheck-effect_${scalaCompatVersion}</artifactId>
+            <version>${scalacheckEffect}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.basedir}/../frameless/${project.name}/src/main/scala</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>for-scaladocs-etc</id>
+                        <phase>pre-site</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.basedir}/../frameless/${project.name}/src/main/scala</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>add-test-source</id>
+                        <phase>generate-test-sources</phase>
+                        <goals>
+                            <goal>add-test-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.basedir}/../frameless/${project.name}/src/test/scala</source>
+                                <source>${project.basedir}/../frameless/${project.name}/src/test/${testCompat}</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>
