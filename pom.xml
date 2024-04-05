@@ -48,6 +48,7 @@
                 <sparkCompatVersion>3.5</sparkCompatVersion>
                 <testCompat>spark-3.3+</testCompat>
                 <shimRuntime>3.5.0.oss</shimRuntime>
+                <jacksonVersion>2.15.2</jacksonVersion>
             </properties>
         </profile>
 
@@ -160,6 +161,20 @@
             <version>${scalacheck}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-scala_${scalaCompatVersion}</artifactId>
+            <version>${jacksonVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jacksonVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
