@@ -41,6 +41,76 @@ If the bug is in functionality effected by the use of any com.sparkutils.framele
 
 ## Versions
 
-com.sparkutils.frameless starts off from the 0.16 release of frameless proper and, as of 05 April 24) adds [#800 - shim usage](https://github.com/typelevel/frameless/pull/800),  [#805 - correct Seq/Set encoding](https://github.com/typelevel/frameless/pull/805) and  [#806 - correct eval implementation for UDF](https://github.com/typelevel/frameless/pull/806).
+com.sparkutils.frameless starts off from the 0.16 release of frameless proper and publishes artifacts against the spark major.minor, as of 05 April 24) adds [#800 - shim usage](https://github.com/typelevel/frameless/pull/800),  [#805 - correct Seq/Set encoding](https://github.com/typelevel/frameless/pull/805) and  [#806 - correct eval implementation for UDF](https://github.com/typelevel/frameless/pull/806).
 
-more to come...
+In order to depend upon both typelevel frameless and com.sparkutils.frameless the following scheme is needed (use the profiles to swap between version see [testless' pom](https://github.com/sparkutils/testless/blob/main/pom.xml) for a thorough example):
+
+```xml
+<pom>
+<profiles>
+     <profile>
+         <!-- actual frameless -->
+        <id>0.17.0-3.3.4</id>
+        <properties>
+            <framelessVersion>0.16.0-78-b880261-SNAPSHOT</framelessVersion>
+            <framelessRuntime>0.17.0-3.3.2</framelessRuntime>
+            <framelessOrg>org.typelevel</framelessOrg>
+            <framelessCompatVersion>-spark33</framelessCompatVersion>
+            <framelessCoreCompatVersion></framelessCoreCompatVersion>
+        </properties>
+    </profile>
+    <profile>
+        <!-- sparkutils frameless -->
+        <id>sparkutils-0.17.0-3.5</id>
+        <properties>
+            <framelessVersion>0.17.0-SNAPSHOT</framelessVersion>
+            <framelessRuntime>sparkutils_0.17.0-3.5</framelessRuntime>
+            <framelessOrg>com.sparkutils</framelessOrg>
+            <framelessCompatVersion>_3.5</framelessCompatVersion>
+            <framelessCoreCompatVersion>_3.5</framelessCoreCompatVersion>
+        </properties>
+    </profile>
+    
+</profiles>
+    
+<properties>
+    <shimRuntime>14.3.dbr</shimRuntime>
+    <shimRuntimeVersion>0.0.1-RC4</shimRuntimeVersion>
+</properties>   
+    
+<dependencies>
+    <!-- shim runtime of your choosing -->
+    <dependency>
+        <groupId>com.sparkutils</groupId>
+        <artifactId>shim_runtime_${shimRuntime}_${sparkCompatVersion}_${scalaCompatVersion}</artifactId>
+        <version>${shimRuntimeVersion}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>${framelessOrg}</groupId>
+        <!-- framelessCoreCompatVersion is used as sparkutils.frameless always publishes the spark major.minor -->
+        <artifactId>frameless-core${framelessCoreCompatVersion}_${scalaCompatVersion}</artifactId>
+        <version>${framelessVersion}</version>
+        <exclusions>
+            <!-- exclude the shim -->
+            <exclusion>
+                <groupId>com.sparkutils</groupId>
+                <artifactId>*</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+    <dependency>
+        <groupId>${framelessOrg}</groupId>
+        <artifactId>frameless-dataset${framelessCompatVersion}_${scalaCompatVersion}</artifactId>
+        <version>${framelessVersion}</version>
+        <exclusions>
+            <!-- exclude the shim -->
+            <exclusion>
+                <groupId>com.sparkutils</groupId>
+                <artifactId>*</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+</dependencies>
+</pom>
+```
