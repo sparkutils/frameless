@@ -1,0 +1,38 @@
+# Full build setup off main, with ~docsOnly commit filter to run just mvn_site then docs.
+name: Default CI
+
+on:
+  push:
+    branches: [ "main", "temp/*" ]
+  pull_request:
+    branches: [ "main", "temp/*" ]
+
+env:
+  MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
+  MAVEN_CLI_TESTSHADES_OPTS: "-f testShades/pom.xml --batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
+  # -Dmaven.repo.local=.m2/repository not needed on github, seems ~/.m2 is supported / expected
+  MAVEN_OPTS: "-Dhttp.keepAlive=false -Dmaven.wagon.http.pool=false -Dmaven.wagon.http.retryHandler.class=standard -Dmaven.wagon.http.retryHandler.count=3 -Dhttps.protocols=TLSv1.2 -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true"
+
+jobs:
+
+  testBuilds_2_12_18_and_2_13_12:
+    uses: sparkutils/building/.github/workflows/run_build.yml@main
+    with:
+      testString: test
+      theMatrix: |
+        {
+          "profile": ["Spark351", "Spark342", "Spark334"],
+          "scala": ["scala_2.12","scala_2.13"]
+        }
+    secrets: inherit
+
+  publish_2_12_18_and_2_13_12:
+    needs: [testBuilds_2_12_18_and_2_13_12]
+    uses: sparkutils/building/.github/workflows/publish_build.yml@main
+    with:
+      theMatrix: |
+        {
+          "profile": ["Spark351", "Spark342", "Spark334"],
+          "scala": ["scala_2.12","scala_2.13"]
+        }
+    secrets: inherit

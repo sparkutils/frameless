@@ -28,14 +28,14 @@
     </scm>
     <profiles>
         <profile>
-            <id>Scala_2_12</id>
+            <id>Scala_2.12</id>
             <properties>
                 <scalaVersion>2.12.18</scalaVersion>
                 <scalaCompatVersion>2.12</scalaCompatVersion>
             </properties>
         </profile>
         <profile>
-            <id>Scala_2_13</id>
+            <id>Scala_2.13</id>
             <properties>
                 <scalaVersion>2.13.12</scalaVersion>
                 <scalaCompatVersion>2.13</scalaCompatVersion>
@@ -49,6 +49,26 @@
                 <testCompat>spark-3.3+</testCompat>
                 <shimRuntime>3.5.0.oss</shimRuntime>
                 <jacksonVersion>2.15.2</jacksonVersion>
+            </properties>
+        </profile>
+        <profile>
+            <id>Spark342</id>
+            <properties>
+                <sparkVersion>3.4.2</sparkVersion>
+                <sparkCompatVersion>3.3</sparkCompatVersion>
+                <testCompat>spark-3.3+</testCompat>
+                <shimRuntime>3.4.1.oss</shimRuntime>
+                <jacksonVersion>2.14.2</jacksonVersion>
+            </properties>
+        </profile>
+        <profile>
+            <id>Spark334</id>
+            <properties>
+                <sparkVersion>3.3.4</sparkVersion>
+                <sparkCompatVersion>3.3</sparkCompatVersion>
+                <testCompat>spark-3.3+</testCompat>
+                <shimRuntime>3.3.2.oss</shimRuntime>
+                <jacksonVersion>2.13.5</jacksonVersion>
             </properties>
         </profile>
 
