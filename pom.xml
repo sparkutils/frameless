@@ -32,6 +32,8 @@
             <properties>
                 <scalaVersion>2.12.18</scalaVersion>
                 <scalaCompatVersion>2.12</scalaCompatVersion>
+                <scalacArg1>-Yno-adapted-args</scalacArg1>
+                <scalacArg2>-Ypartial-unification</scalacArg2>
             </properties>
         </profile>
         <profile>
@@ -121,6 +123,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <scalatestMavenPluginVersion>2.2.0</scalatestMavenPluginVersion>
+
+        <scalacArg1></scalacArg1>
+        <scalacArg2></scalacArg2>
     </properties>
 
     <repositories>
@@ -276,6 +281,8 @@
                             <arg>-language:existentials</arg>
                             <arg>-language:higherKinds</arg>
                             <arg>-Xfuture</arg>
+                            <arg>${scalacArg1}</arg>
+                            <arg>${scalacArg2}</arg>
                             <arg>-nobootcp</arg>
                         </args>
                         <recompileMode>all</recompileMode>
