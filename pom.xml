@@ -49,6 +49,7 @@
                 <testCompat>spark-3.3+</testCompat>
                 <shimRuntime>3.5.0.oss</shimRuntime>
                 <jacksonVersion>2.15.2</jacksonVersion>
+                <slf4jVersion>2.0.7</slf4jVersion>
             </properties>
         </profile>
         <profile>
@@ -59,6 +60,7 @@
                 <testCompat>spark-3.3+</testCompat>
                 <shimRuntime>3.4.1.oss</shimRuntime>
                 <jacksonVersion>2.14.2</jacksonVersion>
+                <slf4jVersion>2.0.6</slf4jVersion>
             </properties>
         </profile>
         <profile>
@@ -69,6 +71,7 @@
                 <testCompat>spark-3.3+</testCompat>
                 <shimRuntime>3.3.2.oss</shimRuntime>
                 <jacksonVersion>2.13.5</jacksonVersion>
+                <slf4jVersion>1.7.32</slf4jVersion>
             </properties>
         </profile>
 
@@ -153,9 +156,9 @@
         </dependency>
         <!-- conflicting slf4j-api from avro via core, this forces there right one -->
         <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-common-utils_${scalaCompatVersion}</artifactId>
-            <version>${sparkVersion}</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4jVersion}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
