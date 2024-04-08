@@ -213,7 +213,7 @@
 
         <testResources>
             <testResource>
-                <directory>${project.basedir}/dataset/src/test/resources</directory>
+                <directory>${project.basedir}/../frameless/dataset/src/test/resources</directory>
                 <filtering>true</filtering>
             </testResource>
         </testResources>
