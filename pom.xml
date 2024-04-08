@@ -55,7 +55,7 @@
             <id>Spark342</id>
             <properties>
                 <sparkVersion>3.4.2</sparkVersion>
-                <sparkCompatVersion>3.3</sparkCompatVersion>
+                <sparkCompatVersion>3.4</sparkCompatVersion>
                 <testCompat>spark-3.3+</testCompat>
                 <shimRuntime>3.4.1.oss</shimRuntime>
                 <jacksonVersion>2.14.2</jacksonVersion>
