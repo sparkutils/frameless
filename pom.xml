@@ -28,14 +28,14 @@
     </scm>
     <profiles>
         <profile>
-            <id>Scala_2.12</id>
+            <id>scala_2.12</id>
             <properties>
                 <scalaVersion>2.12.18</scalaVersion>
                 <scalaCompatVersion>2.12</scalaCompatVersion>
             </properties>
         </profile>
         <profile>
-            <id>Scala_2.13</id>
+            <id>scala_2.13</id>
             <properties>
                 <scalaVersion>2.13.12</scalaVersion>
                 <scalaCompatVersion>2.13</scalaCompatVersion>
