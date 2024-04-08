@@ -41,7 +41,13 @@ If the bug is in functionality effected by the use of any com.sparkutils.framele
 
 ## Versions
 
-com.sparkutils.frameless starts off from the 0.16 release of frameless proper and publishes artifacts against the spark major.minor, as of 05 April 24) adds [#800 - shim usage](https://github.com/typelevel/frameless/pull/800),  [#805 - correct Seq/Set encoding](https://github.com/typelevel/frameless/pull/805) and  [#806 - correct eval implementation for UDF](https://github.com/typelevel/frameless/pull/806).
+com.sparkutils.frameless starts off from the 0.16 release of frameless proper and publishes artifacts against the spark major.minor.
+
+| Version         | Based On | Released     | Extras                                                                                                                                                                                                                                                         |
+|-----------------|----------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0.17.0-SNAPSHOT | 0.16.0   | 8th April 24 |  [#800 - shim usage](https://github.com/typelevel/frameless/pull/800),  [#805 - correct Seq/Set encoding](https://github.com/typelevel/frameless/pull/805) and  [#806 - correct eval implementation for UDF](https://github.com/typelevel/frameless/pull/806). |
+
+## How to use
 
 In order to depend upon both typelevel frameless and com.sparkutils.frameless the following scheme is needed (use the profiles to swap between version see [testless' pom](https://github.com/sparkutils/testless/blob/main/pom.xml) for a thorough example):
 
