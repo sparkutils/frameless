@@ -276,7 +276,6 @@
                             <arg>-language:existentials</arg>
                             <arg>-language:higherKinds</arg>
                             <arg>-Xfuture</arg>
-                            <arg>-Ypartial-unification</arg>
                             <arg>-nobootcp</arg>
                         </args>
                         <recompileMode>all</recompileMode>
