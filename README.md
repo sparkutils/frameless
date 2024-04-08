@@ -43,9 +43,9 @@ If the bug is in functionality effected by the use of any com.sparkutils.framele
 
 com.sparkutils.frameless starts off from the 0.16 release of frameless proper and publishes artifacts against the spark major.minor.
 
-| Version         | Based On | Released     | Extras                                                                                                                                                                                                                                                         |
-|-----------------|----------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 0.17.0-SNAPSHOT | 0.16.0   | 8th April 24 |  [#800 - shim usage](https://github.com/typelevel/frameless/pull/800),  [#805 - correct Seq/Set encoding](https://github.com/typelevel/frameless/pull/805) and  [#806 - correct eval implementation for UDF](https://github.com/typelevel/frameless/pull/806). |
+| Version    | Based On | Released     | Extras                                                                                                                                                                                                                                                         |
+|------------|----------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0.17.0-RC1 | 0.16.0   | 8th April 24 |  [#800 - shim usage](https://github.com/typelevel/frameless/pull/800),  [#805 - correct Seq/Set encoding](https://github.com/typelevel/frameless/pull/805) and  [#806 - correct eval implementation for UDF](https://github.com/typelevel/frameless/pull/806). |
 
 ## How to use
 
