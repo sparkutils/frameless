@@ -213,7 +213,7 @@
 
         <testResources>
             <testResource>
-                <directory>${project.basedir}/../frameless/dataset/src/test/resources</directory>
+                <directory>${project.basedir}/dataset/src/test/resources</directory>
                 <filtering>true</filtering>
             </testResource>
         </testResources>
@@ -275,7 +275,6 @@
                             <arg>-language:postfixOps</arg>
                             <arg>-language:existentials</arg>
                             <arg>-language:higherKinds</arg>
-                            <arg>-Yno-adapted-args</arg>
                             <arg>-Xfuture</arg>
                             <arg>-Ypartial-unification</arg>
                             <arg>-nobootcp</arg>
@@ -369,6 +368,7 @@
                     <junitxml>.</junitxml>
                     <filereports>WDF TestSuite.txt</filereports>
                     <fileReporterOptions>-oDF</fileReporterOptions>
+                    <argLine>-Xmx1G -ea</argLine>
                   </configuration>
                   <executions>
                     <execution>
