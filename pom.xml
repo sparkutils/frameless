@@ -6,7 +6,7 @@
     <artifactId>frameless-root_${sparkCompatVersion}_${scalaCompatVersion}</artifactId>
 
     <packaging>pom</packaging>
-    <version>0.17.0-RC5</version>
+    <version>0.17.0</version>
     <name>frameless root</name>
     <description>A fork of frameless</description>
     <url>https://github.com/sparkutils/frameless/</url>
@@ -117,7 +117,7 @@
         <scalacheckEffect>1.0.4</scalacheckEffect>
         <refinedVersion>0.11.1</refinedVersion>
         <nakedFSVersion>0.1.0</nakedFSVersion>
-        <shimVersion>0.0.1-RC4</shimVersion>
+        <shimVersion>0.0.1</shimVersion>
 
         <!-- needed for scoverage -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

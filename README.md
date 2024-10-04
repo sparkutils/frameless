@@ -18,12 +18,12 @@ It's not frameless, it just behaves the same, use the same packages and stays fa
 
 ## How does com.sparkutils.frameless relate to the rest of com.sparkutils?
 
-com.sparkutils.frameless builds upon typelevel frameless targetting OSS Spark and uses [shim](https://github.com/sparkutils/shim) to run on a wider variety of runtimes without a major release, [Quality](https://github.com/sparkutils/quality) as of [0.1.3](https://github.com/sparkutils/quality/milestone/8) uses com.sparkutils.frameless as a provided scope artefact.  [testless](https://github.com/sparkutils/testless) provides a shaded test pack against com.sparkutils.frameless (and possibly frameless proper in the future if 800 is merged) to test against various runtimes (primarily Databricks).
+com.sparkutils.frameless builds upon typelevel frameless targeting OSS Spark and uses [shim](https://github.com/sparkutils/shim) to run on a wider variety of runtimes without a major release, [Quality](https://github.com/sparkutils/quality) as of [0.1.3](https://github.com/sparkutils/quality/milestone/8) uses com.sparkutils.frameless as a provided scope artefact.  [testless](https://github.com/sparkutils/testless) provides a shaded test pack against com.sparkutils.frameless (and possibly frameless proper in the future if 800 is merged) to test against various runtimes (primarily Databricks).
 
 ## How?
 
 1. Git submodules - the actual source code will be taken from a specific commit of the https://github.com/chris-twiner/frameless/ fork.  Code will be kept in sync on demand
-2. Maven - SBT builds are not straightforward to achieve in some corporate environments, keeping sbt pluguins updated and available can be almost a full time role.  As such the build moves to maven with build helper to access the correct source locations.
+2. Maven - SBT builds are not straightforward to achieve in some corporate environments, keeping sbt plugins updated and available can be almost a full time role.  As such the build moves to maven with build helper to access the correct source locations.
 
 ## Why should I use this?
 
@@ -31,7 +31,7 @@ You need some of the features in the build which are not yet (or possibly won't 
 
 ## Will com.sparkutils.frameless continue to exist if 800 is merged and released?
 
-The repo won't go away, nor will the occasional need.  However it's strongly recommended to use the official library wherever possible.
+The repo won't go away, nor will the occasional need.  However, it's strongly recommended to use the official library wherever possible.
 
 ## What if I find a bug?
 
@@ -43,9 +43,9 @@ If the bug is in functionality effected by the use of any com.sparkutils.framele
 
 com.sparkutils.frameless starts off from the 0.16 release of frameless proper and publishes artifacts against the spark major.minor.
 
-| Version    | Based On | Released     | Extras                                                                                                                                                                                                                                                         |
-|------------|----------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 0.17.0-RC1 | 0.16.0   | 8th April 24 |  [#800 - shim usage](https://github.com/typelevel/frameless/pull/800),  [#805 - correct Seq/Set encoding](https://github.com/typelevel/frameless/pull/805) and  [#806 - correct eval implementation for UDF](https://github.com/typelevel/frameless/pull/806). |
+| Version  | Based On | Released     | Extras                                                                                                                                                                                                                                                         |
+|----------|----------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0.17.0   | 0.16.0   | 8th April 24 |  [#800 - shim usage](https://github.com/typelevel/frameless/pull/800),  [#805 - correct Seq/Set encoding](https://github.com/typelevel/frameless/pull/805) and  [#806 - correct eval implementation for UDF](https://github.com/typelevel/frameless/pull/806). |
 
 ## How to use
 
@@ -69,7 +69,7 @@ In order to depend upon both typelevel frameless and com.sparkutils.frameless th
         <!-- sparkutils frameless -->
         <id>sparkutils-0.17.0-3.5</id>
         <properties>
-            <framelessVersion>0.17.0-SNAPSHOT</framelessVersion>
+            <framelessVersion>0.17.0</framelessVersion>
             <framelessRuntime>sparkutils_0.17.0-3.5</framelessRuntime>
             <framelessOrg>com.sparkutils</framelessOrg>
             <framelessCompatVersion>_3.5</framelessCompatVersion>
@@ -81,7 +81,7 @@ In order to depend upon both typelevel frameless and com.sparkutils.frameless th
     
 <properties>
     <shimRuntime>14.3.dbr</shimRuntime>
-    <shimRuntimeVersion>0.0.1-RC4</shimRuntimeVersion>
+    <shimRuntimeVersion>0.0.1</shimRuntimeVersion>
 </properties>   
     
 <dependencies>
