@@ -1,6 +1,8 @@
 # frameless
 
-A wrapped and published fork of the excellent [frameless](https://github.com/typelevel/frameless) library
+A wrapped and published fork of the excellent [frameless](https://github.com/typelevel/frameless) library.
+
+Version 1.x represents a shift towards AgnosticEncoders and support for Spark Connect as well as Spark Classic using the unified API from Spark 4.  As such it makes a clean break, only supporting 4.x currently.
 
 ## Why?
 
@@ -10,11 +12,11 @@ The major shift proposed by [#800](https://github.com/typelevel/frameless/pull/8
 
 In order to test in a corporate setting the software needs to be full-blown release on maven central, building local snapshots is not always straight forward, worst still if you need to depend on it.
 
-com.sparkutils.frameless aims to fill that void.
+com.sparkutils.frameless aims to fill that void, although it may take on a life of its own with Spark 4.  
 
 ## What com.sparkutils.frameless is not
 
-It's not frameless, it just behaves the same, use the same packages and stays fairly up to date with frameless proper.  Check release logs for confirmations of functionality.
+It's not frameless, it just behaves the same and has wider version and runtime support, use the same packages and stays fairly up to date with frameless proper.  Check release logs for confirmations of functionality.
 
 ## How does com.sparkutils.frameless relate to the rest of com.sparkutils?
 
@@ -43,9 +45,12 @@ If the bug is in functionality effected by the use of any com.sparkutils.framele
 
 com.sparkutils.frameless starts off from the 0.16 release of frameless proper and publishes artifacts against the spark major.minor.
 
-| Version  | Based On | Released     | Extras                                                                                                                                                                                                                                                         |
-|----------|----------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 0.17.0   | 0.16.0   | 8th April 24 |  [#800 - shim usage](https://github.com/typelevel/frameless/pull/800),  [#805 - correct Seq/Set encoding](https://github.com/typelevel/frameless/pull/805) and  [#806 - correct eval implementation for UDF](https://github.com/typelevel/frameless/pull/806). |
+Version 1.x starts a fresh with Spark 4 and 2.13 support only.
+
+| Version | Based On | Released         | Extras                                                                                                                                                                                                                                                                                                                                             |
+|---------|----------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0.17.0  | 0.16.0   | 8th April 24     | [#800 - shim usage](https://github.com/typelevel/frameless/pull/800),  [#805 - correct Seq/Set encoding](https://github.com/typelevel/frameless/pull/805) and [#806 - correct eval implementation for UDF](https://github.com/typelevel/frameless/pull/806).                                                                                       |
+| 1.0.0   | 0.17.0   | 18th February 25 | [#800 - shim usage](https://github.com/typelevel/frameless/pull/800),  [#805 - correct Seq/Set encoding](https://github.com/typelevel/frameless/pull/805), [#806 - correct eval implementation for UDF](https://github.com/typelevel/frameless/pull/806) and [#701 - Spark 4 AgnosticEncoders](https://github.com/typelevel/frameless/issues/701). |
 
 ## How to use
 
