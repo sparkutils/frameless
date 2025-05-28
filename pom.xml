@@ -37,8 +37,8 @@
         <profile>
             <id>Spark4</id>
             <properties>
-                <sparkVersion>4.1.0-SNAPSHOT</sparkVersion>
-                <sparkCompatVersion>4.1</sparkCompatVersion>
+                <sparkVersion>4.0.0</sparkVersion>
+                <sparkCompatVersion>4.0</sparkCompatVersion>
                 <shimRuntime>4.0.0.oss</shimRuntime>
                 <jacksonVersion>2.13.5</jacksonVersion>
                 <testCompat>spark-3.3+</testCompat>
@@ -57,7 +57,7 @@
     </modules>
 
     <properties>
-        <revision>1.0.0-SNAPSHOT</revision>
+        <revision>1.0.0-RC1</revision>
 
         <mavenProjectInfoReportsPluginVersion>3.4.5</mavenProjectInfoReportsPluginVersion>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -88,7 +88,7 @@
         <scalacheckEffect>1.0.4</scalacheckEffect>
         <refinedVersion>0.11.1</refinedVersion>
         <nakedFSVersion>0.1.0</nakedFSVersion>
-        <shimVersion>0.0.2-SNAPSHOT</shimVersion>
+        <shimVersion>0.2.0-RC5</shimVersion>
 
         <!-- needed for scoverage -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

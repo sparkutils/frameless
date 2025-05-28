@@ -45,7 +45,8 @@ If the bug is in functionality effected by the use of any com.sparkutils.framele
 
 com.sparkutils.frameless starts off from the 0.16 release of frameless proper and publishes artifacts against the spark major.minor.
 
-Version 1.x starts a fresh with Spark 4 and 2.13 support only.
+Version 1.x starts a fresh with Spark 4 and 2.13 support only maintaining support for Catalyst expression based TypedEncoders and will be the last release supporting them.  
+Version 2.x moves TypedEncoders to use AgnosticEncoders and Codecs internally. 
 
 | Version | Based On | Released         | Extras                                                                                                                                                                                                                                                                                                                                             |
 |---------|----------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
