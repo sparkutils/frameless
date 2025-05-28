@@ -24,6 +24,9 @@ jobs:
           "profile": ["Spark4"],
           "scala": ["scala_2.13"]
         }
+      sparkVersion: 3.5.5
+      hadoopVersion: 3
+      jdk: 21
     secrets: inherit
 
   publish_2_13_16:
@@ -35,4 +38,7 @@ jobs:
           "profile": ["Spark4"],
           "scala": ["scala_2.13"]
         }
+      sparkVersion: 3.5.5
+      hadoopVersion: 3
+      jdk: 21
     secrets: inherit
