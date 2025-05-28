@@ -15,24 +15,24 @@ env:
 
 jobs:
 
-  testBuilds_2_12_18_and_2_13_12:
+  testBuilds_2_13_16:
     uses: sparkutils/building/.github/workflows/run_build.yml@main
     with:
       testString: test
       theMatrix: |
         {
-          "profile": ["Spark351", "Spark342", "Spark334"],
-          "scala": ["scala_2.12","scala_2.13"]
+          "profile": ["Spark4"],
+          "scala": ["scala_2.13"]
         }
     secrets: inherit
 
-  publish_2_12_18_and_2_13_12:
-    needs: [testBuilds_2_12_18_and_2_13_12]
+  publish_2_13_16:
+    needs: [testBuilds_2_13_16]
     uses: sparkutils/building/.github/workflows/publish_build.yml@main
     with:
       theMatrix: |
         {
-          "profile": ["Spark351", "Spark342", "Spark334"],
-          "scala": ["scala_2.12","scala_2.13"]
+          "profile": ["Spark4"],
+          "scala": ["scala_2.13"]
         }
     secrets: inherit

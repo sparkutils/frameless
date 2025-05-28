@@ -30,7 +30,7 @@
         <profile>
             <id>scala_2.13</id>
             <properties>
-                <scalaVersion>2.13.12</scalaVersion>
+                <scalaVersion>2.13.16</scalaVersion>
                 <scalaCompatVersion>2.13</scalaCompatVersion>
             </properties>
         </profile>
