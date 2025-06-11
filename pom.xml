@@ -6,7 +6,7 @@
     <artifactId>frameless-root_${sparkCompatVersion}_${scalaCompatVersion}</artifactId>
 
     <packaging>pom</packaging>
-    <version>0.17.0</version>
+    <version>${revision}</version>
     <name>frameless root</name>
     <description>A fork of frameless</description>
     <url>https://github.com/sparkutils/frameless/</url>
@@ -28,51 +28,20 @@
     </scm>
     <profiles>
         <profile>
-            <id>scala_2.12</id>
-            <properties>
-                <scalaVersion>2.12.18</scalaVersion>
-                <scalaCompatVersion>2.12</scalaCompatVersion>
-                <scalacArg1>-Yno-adapted-args</scalacArg1>
-                <scalacArg2>-Ypartial-unification</scalacArg2>
-            </properties>
-        </profile>
-        <profile>
             <id>scala_2.13</id>
             <properties>
-                <scalaVersion>2.13.12</scalaVersion>
+                <scalaVersion>2.13.16</scalaVersion>
                 <scalaCompatVersion>2.13</scalaCompatVersion>
             </properties>
         </profile>
         <profile>
-            <id>Spark351</id>
+            <id>Spark4</id>
             <properties>
-                <sparkVersion>3.5.1</sparkVersion>
-                <sparkCompatVersion>3.5</sparkCompatVersion>
-                <testCompat>spark-3.3+</testCompat>
-                <shimRuntime>3.5.0.oss</shimRuntime>
-                <jacksonVersion>2.15.2</jacksonVersion>
-                <slf4jVersion>2.0.7</slf4jVersion>
-            </properties>
-        </profile>
-        <profile>
-            <id>Spark342</id>
-            <properties>
-                <sparkVersion>3.4.2</sparkVersion>
-                <sparkCompatVersion>3.4</sparkCompatVersion>
-                <testCompat>spark-3.3+</testCompat>
-                <shimRuntime>3.4.1.oss</shimRuntime>
-                <jacksonVersion>2.14.2</jacksonVersion>
-                <slf4jVersion>2.0.6</slf4jVersion>
-            </properties>
-        </profile>
-        <profile>
-            <id>Spark334</id>
-            <properties>
-                <sparkVersion>3.3.4</sparkVersion>
-                <sparkCompatVersion>3.3</sparkCompatVersion>
-                <testCompat>spark-3.3+</testCompat>
-                <shimRuntime>3.3.2.oss</shimRuntime>
+                <sparkVersion>4.0.0</sparkVersion>
+                <sparkCompatVersion>4.0</sparkCompatVersion>
+                <shimRuntime>4.0.0.oss</shimRuntime>
                 <jacksonVersion>2.13.5</jacksonVersion>
+                <testCompat>spark-3.3+</testCompat>
                 <slf4jVersion>1.7.32</slf4jVersion>
             </properties>
         </profile>
@@ -88,6 +57,8 @@
     </modules>
 
     <properties>
+        <revision>1.0.0</revision>
+
         <mavenProjectInfoReportsPluginVersion>3.4.5</mavenProjectInfoReportsPluginVersion>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -117,7 +88,7 @@
         <scalacheckEffect>1.0.4</scalacheckEffect>
         <refinedVersion>0.11.1</refinedVersion>
         <nakedFSVersion>0.1.0</nakedFSVersion>
-        <shimVersion>0.0.1</shimVersion>
+        <shimVersion>0.2.0</shimVersion>
 
         <!-- needed for scoverage -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -361,7 +332,7 @@
                   <artifactId>maven-surefire-plugin</artifactId>
                   <version>${surefirePluginVersion}</version>
                   <configuration>
-                    <skipTests>true</skipTests>
+                      <skipTests>true</skipTests>
                   </configuration>
                 </plugin>
                 <!-- enable scalatest -->
@@ -374,7 +345,7 @@
                     <junitxml>.</junitxml>
                     <filereports>WDF TestSuite.txt</filereports>
                     <fileReporterOptions>-oDF</fileReporterOptions>
-                    <argLine>-Xmx1G -ea</argLine>
+                    <argLine>-Xmx1G -ea -XX:+IgnoreUnrecognizedVMOptions --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.nio.cs=ALL-UNNAMED --add-opens=java.base/sun.security.action=ALL-UNNAMED --add-opens=java.base/sun.util.calendar=ALL-UNNAMED</argLine>
                   </configuration>
                   <executions>
                     <execution>
@@ -510,15 +481,15 @@
                 <artifactId>scala-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.13</version>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.7.0</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                    <stagingProgressTimeoutMinutes>15</stagingProgressTimeoutMinutes>
+                    <publishingServerId>central</publishingServerId>
+                    <autoPublish>true</autoPublish>
+                    <waitUntil>published</waitUntil>
+                    <ignorePublishedComponents>true</ignorePublishedComponents>
                 </configuration>
             </plugin>
             <plugin>
