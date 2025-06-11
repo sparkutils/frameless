@@ -57,7 +57,7 @@
     </modules>
 
     <properties>
-        <revision>1.0.0-RC1</revision>
+        <revision>1.0.0</revision>
 
         <mavenProjectInfoReportsPluginVersion>3.4.5</mavenProjectInfoReportsPluginVersion>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -88,7 +88,7 @@
         <scalacheckEffect>1.0.4</scalacheckEffect>
         <refinedVersion>0.11.1</refinedVersion>
         <nakedFSVersion>0.1.0</nakedFSVersion>
-        <shimVersion>0.2.0-RC5</shimVersion>
+        <shimVersion>0.2.0</shimVersion>
 
         <!-- needed for scoverage -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -481,15 +481,15 @@
                 <artifactId>scala-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.13</version>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.7.0</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                    <stagingProgressTimeoutMinutes>15</stagingProgressTimeoutMinutes>
+                    <publishingServerId>central</publishingServerId>
+                    <autoPublish>true</autoPublish>
+                    <waitUntil>published</waitUntil>
+                    <ignorePublishedComponents>true</ignorePublishedComponents>
                 </configuration>
             </plugin>
             <plugin>
